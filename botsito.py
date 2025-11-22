@@ -1,3 +1,4 @@
+import os
 import telebot
 from telebot.types import InputFile
 from docx import Document
@@ -10,7 +11,7 @@ from datetime import datetime
 # ---------------------------------------------------
 # CONFIGURA TU TOKEN AQUI
 # ---------------------------------------------------
-BOT_TOKEN = "8500053540:AAGvI66wAh1AaiIaDSiOivMI8D9fetV4hig"
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 bot = telebot.TeleBot(BOT_TOKEN)
 
 # ---------------------------------------------------
@@ -32,7 +33,7 @@ INTEGRANTES_ORIGINALES = [
 # ---------------------------------------------------
 # CARGA LA PLANTILLA
 # ---------------------------------------------------
-PLANTILLA_PATH = "/mnt/data/PLANTILLA_BLITZ.docx"
+PLANTILLA_PATH = "PLANTILLA_BLITZ.docx"
 
 # ---------------------------------------------------
 # INICIO DEL FLUJO
@@ -182,3 +183,4 @@ def generar_documento(uid, msg):
 # INICIAR BOT
 # ---------------------------------------------------
 bot.polling()
+
